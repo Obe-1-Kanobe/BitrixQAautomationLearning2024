@@ -1,6 +1,4 @@
 using atFrameWork2.BaseFramework;
-using atFrameWork2.TestEntities;
-using ATframework3demo.PageObjects.Mobile;
 using atFrameWork2.BaseFramework.LogTools;
 using atFrameWork2.PageObjects;
 
