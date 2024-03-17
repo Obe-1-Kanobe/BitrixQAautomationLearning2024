@@ -16,5 +16,24 @@ namespace ATframework3demo.PageObjects
                 $"Ожидание появления строки '{recipientName}' в '{recipientsArea.Description}'");
             return isRecipientPresent;
         }
+
+        public NewsPostForm AddText(string text)
+        {
+            return this;
+        }
+
+        public NewsPostForm AddLocalImageFile(int id)
+        {
+            return this;
+        }
+
+        public bool IsFileAttached(int id)
+        {
+            return true;
+        }
+
+        public void Send()
+        {
+        }
     }
 }

@@ -9,5 +9,10 @@
             btnPostCreate.Click();
             return new NewsPostForm();
         }
+
+        public NewsPostPage GetLastPost()
+        {
+            return new NewsPostPage();
+        }
     }
 }
