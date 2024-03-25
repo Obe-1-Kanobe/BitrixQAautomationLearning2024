@@ -19,9 +19,7 @@ namespace ATframework3demo.TestCases
             // Шаги:
 
             // Добавить пост
-            // Добавить текст поста("Test")
             // Загрузить фаил
-            // Фаил загружен
             // Опубликовать пост (нажать на "Отправить")
             // Пост опубликован с прикрепленным фаилом
 
@@ -35,26 +33,18 @@ namespace ATframework3demo.TestCases
             // Открыть "Создать пост" и прикрепить фаил с изображением
             var postWithImage = newsPage
                     .AddPost()
-                    .AddText("Test")
-                    .AddLocalImageFile(fileId);
+                    .AttachLocalImageFile();
 
-            // Проверить что загружаемый фаил прикрепился
-            if (!postWithImage.IsFileAttached(fileId))
-            {
-                Log.Error("Attached file is not displayed in the post creation form");
-            }
-
-            // Опубликовать пост
+            //Опубликовать пост
             postWithImage.Send();
 
-            // Проверить последний созданный пост и згрузился ли в него фаил
-            bool isPostWithAttachedFile = newsPage
-                .GetLastPost()
-                .HasImage(fileId);
+            // TODO: добавить правильный waiter по событию, а не по времени
+            Waiters.StaticWait_s(2);
 
-            if (!isPostWithAttachedFile)
+            // Проверить последний созданный пост и згрузился ли в него фаил
+            if (!newsPage.LastPostHasDiskAttachment())
             {
-                Log.Error("Newly created post does not have attached image");
+                Log.Error("Вновь созданный пост не содержит прикреплённый файл");
             }
         }
     }

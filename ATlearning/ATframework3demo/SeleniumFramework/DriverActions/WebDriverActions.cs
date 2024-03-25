@@ -79,5 +79,18 @@ namespace atFrameWork2.SeleniumFramework
             driver ??= WebItem.DefaultDriver;
             driver.SwitchTo().DefaultContent();
         }
+
+        public static bool IsValidXPath(string xpath, IWebDriver driver = default)
+        {
+            driver ??= WebItem.DefaultDriver;
+            try
+            {
+                var ignore= driver.FindElement(By.XPath(xpath));
+                return true;
+            } catch (NoSuchElementException ex)
+            {
+                return false;
+            }
+        }
     }
 }

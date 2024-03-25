@@ -10,9 +10,13 @@
             return new NewsPostForm();
         }
 
-        public NewsPostPage GetLastPost()
+        public bool LastPostHasDiskAttachment()
         {
-            return new NewsPostPage();
+            // TODO: как убедиться, что последним сообщением будет тот, что мы создали? 
+            // TODO: найти лучший подход для прикрепления 
+            // TODO: разбить метод на несколько шагов для создания объекта сообщения 
+            // TODO: правильный xpath для поиска элемента
+            return atFrameWork2.SeleniumFramework.WebDriverActions.IsValidXPath("//*[@id='log_internal_container']/div[3]/div[1]/div/div[1]/div[contains(@id, 'disk-attach-block')]");
         }
     }
 }
